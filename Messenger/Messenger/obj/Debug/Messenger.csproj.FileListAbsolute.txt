@@ -1,0 +1,14 @@
+C:\Users\Informatyka\source\repos\Messenger\Messenger\bin\Debug\Messenger.exe.config
+C:\Users\Informatyka\source\repos\Messenger\Messenger\bin\Debug\Messenger.exe
+C:\Users\Informatyka\source\repos\Messenger\Messenger\bin\Debug\Messenger.pdb
+C:\Users\Informatyka\source\repos\Messenger\Messenger\obj\Debug\Messenger.csprojResolveAssemblyReference.cache
+C:\Users\Informatyka\source\repos\Messenger\Messenger\obj\Debug\Messenger.csproj.CoreCompileInputs.cache
+C:\Users\Informatyka\source\repos\Messenger\Messenger\obj\Debug\Messenger.exe
+C:\Users\Informatyka\source\repos\Messenger\Messenger\obj\Debug\Messenger.pdb
+F:\Messenger\Messenger\bin\Debug\Messenger.exe.config
+F:\Messenger\Messenger\bin\Debug\Messenger.exe
+F:\Messenger\Messenger\bin\Debug\Messenger.pdb
+F:\Messenger\Messenger\obj\Debug\Messenger.csprojResolveAssemblyReference.cache
+F:\Messenger\Messenger\obj\Debug\Messenger.csproj.CoreCompileInputs.cache
+F:\Messenger\Messenger\obj\Debug\Messenger.exe
+F:\Messenger\Messenger\obj\Debug\Messenger.pdb
