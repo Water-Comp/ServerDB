@@ -13,15 +13,9 @@ namespace Login
         public SQLiteConnection m_dbConnection;
         public DB(string source)
         {
-            try
-            {
-                m_dbConnection = new SQLiteConnection("Data Source=" + source + ";Version=3;");
-                m_dbConnection.Open();
-            }
-            catch
-            {
+            m_dbConnection = new SQLiteConnection("Data Source=" + source + ";Version=3;");
+            m_dbConnection.Open();
 
-            }
         }
         public string Compute(string txt)
         {
