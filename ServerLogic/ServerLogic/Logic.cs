@@ -350,16 +350,13 @@ namespace ServerLogic
         //Send list of missions
         public bool List()
         {
-            try
+            //try
             {
                 string sql = "SELECT Table_Name FROM TABLES";
                 answer = dB.Query(sql);
                 return true;
             }
-            catch
-            {
-                return false;
-            }
+
         }
 
         public bool ConnectWithMission(List<string> missions)

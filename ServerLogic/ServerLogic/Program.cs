@@ -14,6 +14,7 @@ namespace ServerLogic
         {
             
             Commands commands = new Commands();
+            string to_respond = "";
             string input = "";
             string IP;
             IP = Console.ReadLine();
@@ -23,10 +24,12 @@ namespace ServerLogic
                 
                 connect.Connect();
                 input = connect.Recive();
+                System.Console.WriteLine(input);
                 //input = System.Console.ReadLine();
                 //if (input == "exit") break;
-                System.Console.WriteLine(commands.Do(input));
-                connect.Respond(commands.Do(input));
+                to_respond = commands.Do(input);
+                System.Console.WriteLine(to_respond);
+                connect.Respond(to_respond);
             }
         }
     }
