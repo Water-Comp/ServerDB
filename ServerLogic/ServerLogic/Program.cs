@@ -13,8 +13,7 @@ namespace ServerLogic
         static void Main(string[] args)
         {
             
-            DB dB = new DB("Database.db");
-            Commands commands = new Commands(dB);
+            Commands commands = new Commands();
             string input = "";
             string IP;
             IP = Console.ReadLine();

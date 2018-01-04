@@ -10,9 +10,9 @@ namespace ServerLogic
     class Commands
     {
         Logic logic = null;
-        public Commands(DB dB)
+        public Commands()
         {
-            logic = new Logic(dB);
+            logic = new Logic();
         }
         public string Do(string main)
         {
@@ -28,63 +28,70 @@ namespace ServerLogic
                 else args.Add(tmp[i]);
             }
 
+            //Make List of commands
+            List<string> Command = new List<string>();
+            Command.Add("Create");
+            Command.Add("SendUpdate");
+            Command.Add("ReciveUpdate");
+            Command.Add("GetLastImage");
+            Command.Add("CheckTopicality");
+            Command.Add("GetLastest");
+            Command.Add("GetColumns");
+            Command.Add("List");
+            Command.Add("ConnectWithMission");
+
+            int num = Command.IndexOf(command);
+
             //In case of first word of command try to do or return error
-            if (command == "Create")
+            switch (num)
             {
-                if (!logic.Create(args)) return "Something went wrong";
-                else return logic.ToAnswer(logic.answer);
+                case 0:
+                    logic.Create(args);
+                    return Answer();
+
+                case 1:
+                    logic.SendUpdate(args);
+                    return Answer();
+
+                case 2:
+                    logic.ReciveUpdate(args);
+                    return Answer();
+
+                case 3:
+                    logic.GetLastImage(args);
+                    return Answer();
+
+                case 4:
+                    logic.CheckTopicality(args);
+                    return Answer();
+
+                case 5:
+                    logic.GetLastest(args);
+                    return Answer();
+
+                case 6:
+                    logic.GetColumns(args);
+                    return Answer();
+
+                case 7:
+                    logic.List();
+                    return Answer();
+
+                case 8:
+                    logic.ConnectWithMission(args);
+                    return Answer();
+
+                default:
+                    return Answers.Invalid_Command;
             }
 
-            else if (command == "SendUpdate")
-            {
-                if (!logic.SendUpdate(args)) return "Something went wrong";
-                else return logic.ToAnswer(logic.answer);
-            }
 
-            else if (command == "ReciveUpdate")
-            {
-                if (!logic.ReciveUpdate(args)) return "Something went wrong";
-                else return logic.ToAnswer(logic.answer);
-            }
 
-            else if (command == "GetLastImage")
-            {
-                if (!logic.GetLastImage(args)) return "Something went wrong";
-                else return logic.ToAnswer(logic.answer);
-            }
+        }
 
-            else if (command == "CheckTopicality")
-            {
-                if (!logic.CheckTopicality(args)) return "Something went wrong";
-                else return logic.ToAnswer(logic.answer);
-            }
-
-            else if (command == "GetLastest")
-            {
-                if (!logic.GetLastest(args)) return "Something went wrong";
-                else return logic.ToAnswer(logic.answer);
-            }
-
-            else if (command == "GetOne")
-            {
-                if (!logic.GetOne(args)) return "Something went wrong";
-                else return logic.ToAnswer(logic.answer);
-            }
-
-            else if (command == "GetColumns")
-            {
-                if (!logic.GetColumns(args)) return "Something went wrong";
-                else return logic.ToAnswer(logic.answer);
-            }
-
-            else if (command == "List")
-            {
-                if (!logic.List()) return "Something went wrong";
-                else return logic.ToAnswer(logic.answer);
-                
-            }
-
-            else return "Command does not exsist";
+        private string Answer()
+        {
+            return logic.ToAnswer(logic.answer);
         }
     }
 }

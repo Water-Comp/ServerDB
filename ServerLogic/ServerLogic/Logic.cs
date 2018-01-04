@@ -9,8 +9,18 @@ namespace ServerLogic
 {
     class Logic
     {
-        Answers Answers;
-        DB dB = null;
+        /*
+            Create() - Create new table, arguments: table name and array of names of columns
+            SendUpdate() - Send new data to server, arguments: table name and array of data
+            ReciveUpdate() - Send new data to client, arguments: table name and lastest value of time
+            GetLastImage() - Send lastest image of mission: arguments: table name(+_img)
+            CheckTopicality() - Check actuall, arguments: table name and lastest values of time
+            GetLastest() - Send lastest set of data to client, arguments: table name
+            GetColumns() - Send set of columns in table, arguments: table name
+            List() - Send list of missions
+        */
+
+        DB dB = new DB("Database.db");
         public static List<string> Commands = new List<string>();
 
         //global variable using to send answer to client
@@ -23,34 +33,24 @@ namespace ServerLogic
         private string IMG;
         private string column_name;
 
-        public Logic(DB tmp)
+        public Logic()
         {
-            dB = tmp;
-            //Create new table, arguments: table name and array of names of columns
-            Commands.Add("Create");
-            //Send new data to server, arguments: table name and array of data
-            Commands.Add("SendUpdate");
-            //Send new data to client, arguments: table name and lastest value of time
-            Commands.Add("ReciveUpdate");
-            //Send lastest image of mission: arguments: table name(+_img)
-            Commands.Add("GetLastImage");
-            //Check actuall, arguments: table name and lastest values of time
-            Commands.Add("CheckTopicality");
-            //Send lastest set of data to client, arguments: table name
-            Commands.Add("GetLastest");
-            //Send one category of data to client, arguments: table name, time, name of column
-            Commands.Add("GetOne");
-            //Send set of columns in table, arguments: table name
-            Commands.Add("GetColumns");
-            //Send list of missions
-            Commands.Add("List");
             //TODO Dodać Check Sume 
             //TODO SendOne
             //TODO MemoryCheck
             //TODO Flagowanie
             //TODO Baza
-
         }
+
+        /*TODO Jak najszybciej
+         * CheckSume
+         * Restrukturyzacja bazy danych (table -> bazy)
+         * SendOne
+         * MemoryCheck
+         * Flagowanie
+         */
+
+
 
         //Check command then try to do
 
@@ -118,6 +118,7 @@ namespace ServerLogic
             {
                 if (!Exist(table_name))
                 {
+                    //string sql_db = "CREATE DATABASE " + mission_name;
                     string structure = "";
                     string sql = "CREATE TABLE " + table_name + " (time int";
                     for (int i = 0; i < arguments.Count; i++)
@@ -198,7 +199,7 @@ namespace ServerLogic
         public bool ReciveUpdate(List<string> args)
         {
             GetTime(args);
-            //try
+            try
             {
                 if (Exist(table_name))
                 {
@@ -211,6 +212,10 @@ namespace ServerLogic
                     answer = Answers.NotExist;
                     return true;
                 }
+            }
+            catch
+            {
+                return false;
             }
 
         }
@@ -355,6 +360,13 @@ namespace ServerLogic
             {
                 return false;
             }
+        }
+
+        public bool ConnectWithMission(List<string> missions)
+        {
+            string mission = missions[0];
+            dB = new DB(mission);
+            return true;
         }
     }
 }
