@@ -11,7 +11,7 @@ namespace Messenger
         static void Main(string[] args)
         {
             string IP = Console.ReadLine();
-            while(true) Console.WriteLine(TCP.Connect(IP, Console.ReadLine(), 3456));
+            while (true) Console.WriteLine(TCP.Connect(IP, Console.ReadLine(), 3456));
         }
     }
 }

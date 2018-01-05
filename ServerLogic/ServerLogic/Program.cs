@@ -16,8 +16,7 @@ namespace ServerLogic
             Commands commands = new Commands();
             string to_respond = "";
             string input = "";
-            string IP;
-            IP = Console.ReadLine();
+            string IP = Console.ReadLine();
             Connection connect = new Connection(IP, 3456);
             while (true)
             {

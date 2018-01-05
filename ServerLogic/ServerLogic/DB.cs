@@ -10,12 +10,21 @@ namespace Login
 {
     class DB
     {
+        public string path;
         public SQLiteConnection m_dbConnection;
         public DB(string source)
         {
+            path = source;
             m_dbConnection = new SQLiteConnection("Data Source=" + source + ";Version=3;");
             m_dbConnection.Open();
+        }
 
+        public void ChangeSource(string source)
+        {
+            path = source;
+            m_dbConnection.Close();
+            m_dbConnection = new SQLiteConnection("Data Source=" + source + ";Version=3;");
+            m_dbConnection.Open();
         }
         public string Compute(string txt)
         {
@@ -109,7 +118,6 @@ namespace Login
                         i++;
                     }
                     i = 0;
-                    wynik += Environment.NewLine;
                 }
                 return wynik;
             

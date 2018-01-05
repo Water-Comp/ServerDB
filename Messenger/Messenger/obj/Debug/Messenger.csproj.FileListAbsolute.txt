@@ -12,3 +12,10 @@ F:\Messenger\Messenger\obj\Debug\Messenger.csprojResolveAssemblyReference.cache
 F:\Messenger\Messenger\obj\Debug\Messenger.csproj.CoreCompileInputs.cache
 F:\Messenger\Messenger\obj\Debug\Messenger.exe
 F:\Messenger\Messenger\obj\Debug\Messenger.pdb
+C:\Users\zaqqz\Desktop\Repositories\ServerDB\Messenger\Messenger\bin\Debug\Messenger.exe.config
+C:\Users\zaqqz\Desktop\Repositories\ServerDB\Messenger\Messenger\bin\Debug\Messenger.exe
+C:\Users\zaqqz\Desktop\Repositories\ServerDB\Messenger\Messenger\bin\Debug\Messenger.pdb
+C:\Users\zaqqz\Desktop\Repositories\ServerDB\Messenger\Messenger\obj\Debug\Messenger.csprojResolveAssemblyReference.cache
+C:\Users\zaqqz\Desktop\Repositories\ServerDB\Messenger\Messenger\obj\Debug\Messenger.csproj.CoreCompileInputs.cache
+C:\Users\zaqqz\Desktop\Repositories\ServerDB\Messenger\Messenger\obj\Debug\Messenger.exe
+C:\Users\zaqqz\Desktop\Repositories\ServerDB\Messenger\Messenger\obj\Debug\Messenger.pdb
