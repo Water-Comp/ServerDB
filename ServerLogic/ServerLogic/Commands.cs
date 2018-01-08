@@ -9,10 +9,10 @@ namespace ServerLogic
 {
     class Commands
     {
-        Logic logic = null;
+        Logic logic = new Logic();
         public Commands()
         {
-            logic = new Logic();
+            ;
         }
         public string Do(string main)
         {
@@ -37,6 +37,7 @@ namespace ServerLogic
             Command.Add("GetLastest");
             Command.Add("GetColumns");
             Command.Add("List");
+            Command.Add("CheckMemory");
 
             int num = Command.IndexOf(command);
             //In case of first word of command try to do or return error
@@ -72,6 +73,10 @@ namespace ServerLogic
 
                 case 7:
                     logic.List();
+                    return Answer();
+
+                case 8:
+                    logic.CheckMemory();
                     return Answer();
 
                 default:

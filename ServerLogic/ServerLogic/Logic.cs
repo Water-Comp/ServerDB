@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
+using System.Management;
 
 namespace ServerLogic
 {
@@ -36,20 +37,8 @@ namespace ServerLogic
 
         public Logic()
         {
-            //TODO Dodać Check Sume 
-            //TODO SendOne
-            //TODO MemoryCheck
-            //TODO Flagowanie
-            //TODO Baza
+            ;
         }
-
-        /*TODO Jak najszybciej
-         * CheckSume
-         * Restrukturyzacja bazy danych (table -> bazy)
-         * SendOne
-         * MemoryCheck
-         * Flagowanie
-         */
 
         public string ToAnswer(string ans)
         {
@@ -139,7 +128,7 @@ namespace ServerLogic
             }
             catch(Exception e)
             {
-                answer = e.Message;
+                answer = "!" + e.Message;
             }
 
         }
@@ -176,7 +165,7 @@ namespace ServerLogic
             }
             catch (Exception e)
             {
-                answer = e.Message;
+                answer = "!" + e.Message;
             }
         }
 
@@ -192,7 +181,7 @@ namespace ServerLogic
             }
             catch (Exception e)
             {
-                answer = e.Message;
+                answer = "!" + e.Message;
             }
         }
 
@@ -208,7 +197,7 @@ namespace ServerLogic
             }
             catch (Exception e)
             {
-                answer = e.Message;
+                answer = "!" + e.Message;
             }
         }
 
@@ -225,7 +214,7 @@ namespace ServerLogic
             }
             catch (Exception e)
             {
-                answer = e.Message;
+                answer = "!" + e.Message;
             }
         }
 
@@ -243,7 +232,7 @@ namespace ServerLogic
             }
             catch (Exception e)
             {
-                answer = e.Message;
+                answer = "!" + e.Message;
             }
         }
 
@@ -262,7 +251,7 @@ namespace ServerLogic
             }
             catch (Exception e)
             {
-                answer = e.Message;
+                answer = "!" + e.Message;
             }
         }
 
@@ -302,7 +291,7 @@ namespace ServerLogic
             }
             catch (Exception e)
             {
-                answer = e.Message;
+                answer = "!" + e.Message;
             }
         }
 
@@ -315,7 +304,35 @@ namespace ServerLogic
             }
             catch (Exception e)
             {
-                answer = e.Message;
+                answer = "!" + e.Message;
+            }
+        }
+
+        public void CheckMemory()
+        {
+            try
+            {
+                string path = Path.GetFullPath("ServerLogic.exe");
+                string disk = "";
+                for (int i = 0; i < 3; i++) disk += path[i];
+                DriveInfo drive = new DriveInfo(disk);
+                long free_space = drive.AvailableFreeSpace;
+                float free_space_f = free_space / 1024; /*from bytes to kilobytes*/
+                free_space_f = free_space_f / 1024; /*from kilobytes to megabytes*/
+                if (free_space_f > 1024)
+                {
+                    free_space_f = free_space_f / 1024; /*from megabytes to gigabytes*/
+                    answer = Math.Round(free_space_f, 2) + " GB of free space";
+                }
+                else if (free_space_f < 10)
+                {
+                    answer = Math.Round(free_space_f, 1) + " MB of free space";
+                }
+                else answer = Math.Round(free_space_f) + " MB of free space";
+            }
+            catch(Exception e)
+            {
+                answer = "!" + e.Message;
             }
         }
     }
