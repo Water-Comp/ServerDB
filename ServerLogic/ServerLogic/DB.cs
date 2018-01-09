@@ -103,24 +103,26 @@ namespace Login
 
         public string Query(string sql)
         {
-           
-                string wynik = "";
-                int i = 0;
-                SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
-                SQLiteDataReader reader = command.ExecuteReader();
-                while (reader.Read())
+            string tmp = "";
+            string wynik = "";
+            int i = 0;
+            SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+            SQLiteDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                while (reader.FieldCount > i)
                 {
-
-                    while (reader.FieldCount > i)
-                    {
-                        wynik += reader[i].ToString();
-                        wynik += " ";
-                        i++;
-                    }
-                    i = 0;
+                    wynik += reader[i].ToString();
+                    wynik += " ";
+                    i++;
                 }
-                return wynik;
-            
+                i = 0;
+            }
+            for (int j = 0; j < wynik.Length-1; j++)
+            {
+                tmp += wynik[j];
+            }
+            return tmp;
         }
 
         public int getsize()
